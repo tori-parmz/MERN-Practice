@@ -6,11 +6,15 @@
 
 // E - Express
 
-import express from 'express'
-const app = express()
+import express from 'express';
+const app = express();
+import cors from 'cors';
 
-app.get('/hello', (req, res) => {
-    res.send('hello world')
+app.use(cors())
+
+app.post('/api/register', (req, res) => {
+    console.log(req.body)
+    res.json({ status: 'ok '})
 })
 
 app.listen(1337, () => {
